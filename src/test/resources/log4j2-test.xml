@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="trace">
+	<Properties>
+		<Property name="baseDir">logs</Property>
+		<Property name="debug">debug</Property>
+		<Property name="moniter">moniter</Property>
+		<Property name="returned">result</Property>
+		<Property name="matched">matching</Property>
+		<Property name="link">link</Property>
+		<Property name="build">build</Property>
+		<Property name="error">error</Property>
+	</Properties>
+	<Appenders>
+		<Console name="STD_OUT" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d [%t] [%-5level] [%class{-3}%l] [%marker{1}] - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="DEBUG">
+			<AppenderRef ref="STD_OUT" />
+		</Root>
+	</Loggers>
+</Configuration>

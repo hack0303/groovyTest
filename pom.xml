@@ -1,65 +1,119 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>GroovyTest</groupId>
-  <artifactId>GroovyTest</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
-  <!-- 
-<dependency>
-    <groupId>org.codehaus.groovy</groupId>
-    <artifactId>groovy-all</artifactId>
-    <version>2.5.4</version>
-    <type>pom</type>
-</dependency> 
- -->
-<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
-<dependency>
-    <groupId>org.codehaus.groovy</groupId>
-    <artifactId>groovy</artifactId>
-    <version>2.5.4</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>GroovyTest</groupId>
+	<artifactId>GroovyTest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
+		<jdbc-mysql.version>8.0.11</jdbc-mysql.version>
+		<log4j2.version>2.3</log4j2.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<junit.version>4.12</junit.version>
+		<easymock.version>4.0.2</easymock.version>
+	</properties>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+		<!-- <dependency> <groupId>org.codehaus.groovy</groupId> <artifactId>groovy-all</artifactId> 
+			<version>2.5.4</version> <type>pom</type> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+			<version>2.5.4</version>
+		</dependency>
 
-  <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-eclipse-compiler -->
-   <!-- 
-<dependency>
-    <groupId>org.codehaus.groovy</groupId>
-    <artifactId>groovy-eclipse-compiler</artifactId>
-    <version>2.5.1</version>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-eclipse-compiler -->
+		<!-- <dependency> <groupId>org.codehaus.groovy</groupId> <artifactId>groovy-eclipse-compiler</artifactId> 
+			<version>2.5.1</version> </dependency> <dependency> <groupId>org.codehaus.groovy</groupId> 
+			<artifactId>groovy-eclipse-batch</artifactId> <version>2.4.3-01</version> 
+			</dependency> -->
 
-<dependency>
-    <groupId>org.codehaus.groovy</groupId>
-    <artifactId>groovy-eclipse-batch</artifactId>
-    <version>2.4.3-01</version>
-</dependency>
--->
-  </dependencies>
-  <build>
-    <sourceDirectory>src/main/groovy</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src/main/groovy</directory>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.3</version>
-    <configuration>
-    <source>1.8</source>
-    <target>1.8</target>
-        <compilerId>groovy-eclipse-compiler</compilerId>
-        <verbose>true</verbose>
-    </configuration>
-    <dependencies>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-eclipse-compiler</artifactId>
-            <version>2.7.0-01</version>
-        </dependency>
-    </dependencies>
-</plugin>
-    </plugins>
-  </build>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${jdbc-mysql.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- test -->
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>1.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>5.4.0</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/groovy</sourceDirectory>
+		<testSourceDirectory>src/test/groovy</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${java.source.version}</source>
+					<target>${java.target.version}</target>
+					<compilerId>groovy-eclipse-compiler</compilerId>
+					<verbose>true</verbose>
+					<compilerArgs>
+					<arg>-g</arg>
+				    </compilerArgs>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-compiler</artifactId>
+						<version>2.7.0-01</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
 </project>
